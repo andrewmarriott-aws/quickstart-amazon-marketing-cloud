@@ -35,18 +35,11 @@ Hydrate the data lake by populating it with data from your AMC instance. When yo
 NOTE: If your AMC S3 bucket contained data before deployment of this solution, the data lake does not pick up that data automatically. You must run workflows after deployment to start this process. 
 
 == Query your data with Athena
-If this is your first time using Athena on this AWS account, set the query result location in Amazon S3 as follows:
+As part of the solution, an Athena Workgroup is automatically created. When used, your query results will be stored in the `-athena` S3 bucket.
 
 . Open the Athena console.
-. From the sidebar, choose *Query editor*
-. From the top menu, choose *Settings*.
-. Choose *Manage*.
-. Choose *Browse S3* next to the first open field.
-. Choose the deployed S3 bucket with the suffix `-athena`. 
-+
-This bucket name follows the same convention as the others deployed. You can designate any custom bucket for this purpose; this bucket was deployed as part of the solution for convenience.
-
-. Save the setting.
+. From the sidebar, choose *Query editor*.
+. From the top menu, choose the dropdown *Workgroup* and select the `wfm-` Workgroup.
 
 You are now ready to query your tables with Athena.
 
@@ -70,8 +63,7 @@ For QuickSight to access Athena, Amazon S3, and AWS Lake Formation, a QuickSight
 . Navigate to *Security & Permissions*.
 . Under *QuickSight access to AWS services*, choose *Manage*.
 . Find *Athena* in the list. Clear the box by Athena, and then select it again to enable Athena. Then choose *Next*.
-. Under *S3 Bucket*, choose the S3 buckets to which you want to grant QuickSight read access. 
-. From the right column, *Write permissions for Athena Workgroup*, choose the S3 buckets to which you want to grant QuickSight query-result write access. 
+. Under *S3 Bucket*, choose the `-stage` S3 bucket to grant QuickSight read access.
 . Choose *Finish*, and save your settings.
 
 ==== Authorize QuickSight to access Lake Formation database and tables
