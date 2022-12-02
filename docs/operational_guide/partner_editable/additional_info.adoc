@@ -73,7 +73,7 @@ For QuickSight to access Athena, Amazon S3, and AWS Lake Formation, a QuickSight
 `arn:aws:quicksight:<REGION_NAME>:<ACCOUNT_ID>:user/default/<QUICKSIGHT_USERNAME>`
 * To collect ARNS programmatically, run the following command in your terminal (Linux or macOS) or at your command prompt (Windows): 
 +
-`aws quicksight list-users --aws-account-id 111122223333 --namespace default --region us-east-1`
+`aws quicksight list-users --region <aws-region> --aws-account-id <account-id> --namespace default`
 
 . Open the Lake Formation console as the data-lake administrator.
 . Choose *Databases*, and select the database to which you want to grant your QuickSight user access. Then, for *Actions*, choose *Grant*.
@@ -90,7 +90,7 @@ After you've authorized QuickSight to access AWS services, as described earlier,
 . Create an Athena connection profile.
 .. Under *FROM NEW DATA SOURCES*, choose the *Athena* data source card.
 .. For *Data source name*, enter a descriptive name.
-.. For *Athena Workgroup*, choose your workgroup.
+.. For *Athena Workgroup*, choose `[primary]`.
 .. Choose *Validate connection* to test the connection.
 .. Choose *Create data source*.
 
