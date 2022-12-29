@@ -65,7 +65,8 @@ class PlatformUtilities():
             default_parameters = {}
             for param in parameters:
                 try:
-                    val = response['Item']['defaultPayload']['M'][param]['S']
+                    item = response['Item']['defaultPayload']['M'][param]
+                    val = list(item.values())[0]
                     default_parameters[param] = val
                 except Exception as e:
                     print(f'ERROR: No default value set for {e} \nSet default value in the AMCWorkflows table or invoke with payload\n')
