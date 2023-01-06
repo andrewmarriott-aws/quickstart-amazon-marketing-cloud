@@ -35,11 +35,11 @@ Hydrate the data lake by populating it with data from your AMC instance. When yo
 NOTE: If your AMC S3 bucket contained data before deployment of this solution, the data lake does not pick up that data automatically. You must run workflows after deployment to start this process. 
 
 == Query your data with Athena
-As part of the solution, an Athena Workgroup is automatically created. When used, your query results will be stored in the `-athena` S3 bucket.
+As part of the solution, an Athena workgroup is automatically created. When it's used, your query results are stored in the `-athena` S3 bucket.
 
 . Open the Athena console.
 . From the sidebar, choose *Query editor*.
-. From the top menu, choose the dropdown *Workgroup* and select the `wfm-` Workgroup.
+. From the top menu, choose *Workgroup*, *wfm-*.
 
 You are now ready to query your tables with Athena.
 
@@ -63,7 +63,7 @@ For QuickSight to access Athena, Amazon S3, and AWS Lake Formation, a QuickSight
 . Navigate to *Security & Permissions*.
 . Under *QuickSight access to AWS services*, choose *Manage*.
 . Find *Athena* in the list. Clear the box by Athena, and then select it again to enable Athena. Then choose *Next*.
-. Under *S3 Bucket*, choose the `-stage` S3 bucket to grant QuickSight read access.
+. Under *S3 Bucket*, choose *-stage* to grant QuickSight read access.
 . Choose *Finish*, and save your settings.
 
 ==== Authorize QuickSight to access Lake Formation database and tables
@@ -71,7 +71,7 @@ For QuickSight to access Athena, Amazon S3, and AWS Lake Formation, a QuickSight
 * To construct ARNs manually, use this string, replacing the bracketed items:
 +
 `arn:aws:quicksight:<REGION_NAME>:<ACCOUNT_ID>:user/default/<QUICKSIGHT_USERNAME>`
-* To collect ARNS programmatically, run the following command in your terminal (Linux or macOS) or at your command prompt (Windows): 
+* To collect ARNS programmatically, run the following command in your terminal (Linux or macOS) or at your command prompt (Windows), replacing the information in brackets: 
 +
 `aws quicksight list-users --region <aws-region> --aws-account-id <account-id> --namespace default`
 
@@ -90,7 +90,7 @@ After you've authorized QuickSight to access AWS services, as described earlier,
 . Create an Athena connection profile.
 .. Under *FROM NEW DATA SOURCES*, choose the *Athena* data source card.
 .. For *Data source name*, enter a descriptive name.
-.. For *Athena Workgroup*, choose `[primary]`.
+.. For *Athena Workgroup*, choose *[primary]*.
 .. Choose *Validate connection* to test the connection.
 .. Choose *Create data source*.
 
